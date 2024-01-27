@@ -15,6 +15,9 @@ return {
     },
     {
         "neovim/nvim-lspconfig",
+        dependencies = {
+            "hrsh7th/nvim-cmp",
+        },
         config = function ()
             local lspconfig = require("lspconfig")
 
@@ -47,8 +50,12 @@ return {
                 end, bufopts)
             end
 
+
+            local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
             lspconfig.pylsp.setup({
                 on_attach = on_attach,
+                capabilities = capabilities,
                 settings = {
                     pylsp = {
                         configurationSources = { "flake8" },
@@ -56,10 +63,22 @@ return {
                 }
             })
 
-            lspconfig.clangd.setup({ on_attach = on_attach })
-            lspconfig.cmake.setup({ on_attach = on_attach })
-            lspconfig.lua_ls.setup({ on_attach = on_attach })
-            lspconfig.rust_analyzer.setup({ on_attach = on_attach })
+            lspconfig.clangd.setup({
+                on_attach = on_attach,
+                capabilities = capabilities,
+            })
+            lspconfig.cmake.setup({
+                on_attach = on_attach,
+                capabilities = capabilities,
+            })
+            lspconfig.lua_ls.setup({
+                on_attach = on_attach,
+                capabilities = capabilities,
+            })
+            lspconfig.rust_analyzer.setup({
+                on_attach = on_attach,
+                capabilities = capabilities,
+            })
         end
     }
 }

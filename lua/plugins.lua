@@ -28,6 +28,9 @@ return {
     },
     {
         "nvim-tree/nvim-tree.lua",
+        dependencies = {
+            "nvim-tree/nvim-web-devicons",
+        },
         config = function ()
             vim.g.loaded_netrw = 1
             vim.g.loaded_netrwPlugin = 1
@@ -67,7 +70,14 @@ return {
                 vim.keymap.set(m, "H", function () neoscroll.scroll(-50, true, 100) end, opts)
             end
         end
-    }
-    -- TODO: leap.nvim, null-ls linters, gitsigns, diffview
+    },
+    "vim-airline/vim-airline",
+    {
+        "vim-airline/vim-airline-themes",
+        config = function ()
+            vim.api.nvim_command(":AirlineTheme base16_gruvbox_dark_soft")
+        end
+    },
+    -- TODO: leap.nvim, null-ls linter
     -- TODO: UI
 }
