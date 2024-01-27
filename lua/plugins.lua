@@ -62,22 +62,28 @@ return {
             local neoscroll = require("neoscroll")
             neoscroll.setup({mappings = {}})
 
-            local modes = {"n", "v"}
-            for _,m in pairs(modes) do
-                vim.keymap.set(m, "L", function () neoscroll.scroll(50, true, 100) end, opts)
-                vim.keymap.set(m, "J", function () neoscroll.scroll(10, true, 100) end, opts)
-                vim.keymap.set(m, "K", function () neoscroll.scroll(-10, true, 100) end, opts)
-                vim.keymap.set(m, "H", function () neoscroll.scroll(-50, true, 100) end, opts)
-            end
+            vim.keymap.set({"n", "v"}, "L", function () neoscroll.scroll(50, true, 100) end, opts)
+            vim.keymap.set({"n", "v"}, "J", function () neoscroll.scroll(10, true, 100) end, opts)
+            vim.keymap.set({"n", "v"}, "K", function () neoscroll.scroll(-10, true, 100) end, opts)
+            vim.keymap.set({"n", "v"}, "H", function () neoscroll.scroll(-50, true, 100) end, opts)
         end
     },
-    "vim-airline/vim-airline",
     {
         "vim-airline/vim-airline-themes",
+        dependencies = {
+            "vim-airline/vim-airline",
+        },
         config = function ()
             vim.api.nvim_command(":AirlineTheme base16_gruvbox_dark_soft")
         end
     },
+    {
+        "ggandor/leap.nvim",
+        config = function ()
+            vim.keymap.set({"n", "v"}, "<leader>s", "<Plug>(leap-forward)")
+            vim.keymap.set({"n", "v"}, "<leader>S", "<Plug>(leap-backward)")
+        end
+    }
     -- TODO: leap.nvim, null-ls linter
     -- TODO: UI
 }
