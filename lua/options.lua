@@ -1,4 +1,3 @@
--- TODO: find out what these do
 vim.opt.completeopt = {'menu', 'menuone', 'preview', 'noselect'}
 vim.opt.mouse = 'a'
 

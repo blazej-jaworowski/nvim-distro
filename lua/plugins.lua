@@ -84,6 +84,5 @@ return {
             vim.keymap.set({"n", "v"}, "<leader>S", "<Plug>(leap-backward)")
         end
     }
-    -- TODO: leap.nvim, null-ls linter
-    -- TODO: UI
+    -- TODO: null-ls linter
 }
