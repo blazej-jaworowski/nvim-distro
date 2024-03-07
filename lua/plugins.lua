@@ -15,6 +15,10 @@ return {
             local configs = require("nvim-treesitter.configs")
 
             configs.setup({
+                ensure_installed = {
+                    "c", "query", "vim", "rust", "bash",
+                    "yaml", "toml", "markdown", "cmake"
+                },
                 sync_install = false,
                 highlight = { enable = true },
             })
