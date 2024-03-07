@@ -1,9 +1,9 @@
 return {
     {
         "williamboman/mason.nvim",
-        config = {
+        config = function ()
             require("mason").setup()
-        },
+        end,
     },
     {
         "williamboman/mason-lspconfig.nvim",
