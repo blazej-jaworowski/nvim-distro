@@ -84,8 +84,8 @@ return {
     {
         "ggandor/leap.nvim",
         config = function ()
-            vim.keymap.set({"n", "v"}, "<leader>s", "<Plug>(leap-forward)")
-            vim.keymap.set({"n", "v"}, "<leader>S", "<Plug>(leap-backward)")
+            vim.keymap.set({"n", "v"}, "f", "<Plug>(leap-forward)")
+            vim.keymap.set({"n", "v"}, "F", "<Plug>(leap-backward)")
         end
     }
     -- TODO: null-ls linter
