@@ -51,6 +51,7 @@ return {
             require("toggleterm").setup({
                 open_mapping = [[<C-\>]],
                 direction = 'float',
+                shell = "/usr/bin/zsh",
             })
         end
     },
@@ -62,14 +63,13 @@ return {
     },
     {
         "karb94/neoscroll.nvim",
+        enabled = (os.getenv("SSH_CLIENT") == nil),
         config = function ()
             local neoscroll = require("neoscroll")
             neoscroll.setup({mappings = {}})
 
-            vim.keymap.set({"n", "v"}, "L", function () neoscroll.scroll(50, true, 100) end, opts)
-            vim.keymap.set({"n", "v"}, "J", function () neoscroll.scroll(10, true, 100) end, opts)
-            vim.keymap.set({"n", "v"}, "K", function () neoscroll.scroll(-10, true, 100) end, opts)
-            vim.keymap.set({"n", "v"}, "H", function () neoscroll.scroll(-50, true, 100) end, opts)
+            vim.keymap.set({"n", "v"}, "K", function () neoscroll.scroll(10, true, 100) end, opts)
+            vim.keymap.set({"n", "v"}, "L", function () neoscroll.scroll(-10, true, 100) end, opts)
         end
     },
     {
@@ -87,6 +87,20 @@ return {
             vim.keymap.set({"n", "v"}, "f", "<Plug>(leap-forward)")
             vim.keymap.set({"n", "v"}, "F", "<Plug>(leap-backward)")
         end
+    },
+    {
+        "RRethy/vim-illuminate",
+        config = function()
+            require("illuminate").configure()
+        end
+    },
+    {
+        'nmac427/guess-indent.nvim',
+        config = function()
+            require('guess-indent').setup()
+        end,
+    },
+    {
+        "LunarVim/bigfile.nvim",
     }
-    -- TODO: null-ls linter
 }

@@ -37,7 +37,7 @@ return {
                 vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
 
                 vim.keymap.set("n", "<C-k>", vim.lsp.buf.hover, bufopts)
-                vim.keymap.set("n", "<C-p>", vim.lsp.buf.signature_help, bufopts)
+                vim.keymap.set("n", "<C-l>", vim.lsp.buf.signature_help, bufopts)
 
                 vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
                 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, bufopts)
