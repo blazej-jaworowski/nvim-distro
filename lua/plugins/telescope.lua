@@ -20,7 +20,8 @@ return {
                         '--smart-case',
                         '--hidden',
                         "--glob", "!**/.git/*"
-                    }
+                    },
+                    path_display = { 'smart' }
                 },
                 extensions = {
                     fzf = {
